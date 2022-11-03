@@ -205,6 +205,76 @@ Route::apiResource('/myapi', 'App\Http\Controllers\SampleApiResourceController')
 /*     return view('conferences.show')->with('conference', $conference); */
 /* }); */
 
+//Different ways to return a redirect
+/* // Using the global helper to generate a redirect response */
+/* Route::get('redirect-with-helper', function () { */
+/*     return redirect()->to('login'); */
+/* }); */
+/* // Using the global helper shortcut */
+/* Route::get('redirect-with-helper-shortcut', function () { */
+/*     return redirect('login'); */
+/* }); */
+/* // Using the facade to generate a redirect response */
+/* Route::get('redirect-with-facade', function () { */
+/*     return Redirect::to('login'); */
+/* }); */
+/* // Using the Route::redirect shortcut in Laravel 5.5+ */
+/* Route::redirect('redirect-by-route', 'login'); */
+
+// redirect()->to()
+// // function to($to = null, $status = 302, $header = [], $secure = null)
+// redirect()->route()
+// // Route::get('redirect', function () {
+// //     return redirect()->route('conference.index'));
+// // });
+// function route($to = null, $parameters = [], $status = 302, $headers = [])
+// // Route::get('redirect', function () {
+// //     return redirect()->route('conferences.show', ['conference' => 99]);
+// // });
+// redirect()->back()
+// // Route::get('redirect', function () {
+// //     return redirect()->back();
+// // });
+// Redirect with data
+/* Route::get('redirect-with-key-value', function () { */
+/*     return redirect('dashboard') */
+/*         ->with('error', true); */
+/* }); */
+/* Route::get('redirect-with-array', function () { */
+/*     return redirect('dashboard') */
+/*         ->with(['error' => true, 'message' => 'Whoops!']); */
+/* }); */
+// Redirect with form input
+/* Route::get('form', function () { */
+/*     return view('form'); */
+/* }); */
+/* Route::post('form', function () { */
+/*     return redirect('form') */
+/*         ->withInput() */
+/*         ->with(['error' => true, 'message' => 'Whoops!']); */
+/* }); */
+/* <input name="username" value="<?= old('username', 'Default username instructions here');?>"> */
+
+// Redirect with errors
+/* Route::post('form', function (Illuminate\Http\Request $request) { */
+/*     $validator = Validator::make($request->all(), $this->validationRules); */
+/*     if ($validator->fails()) { */
+/*         return back() */
+/*             ->withErrors($validator) */
+/*             ->withInput(); */
+/*     } */
+/* }); */
+
+// response()->make()
+// response()->json
+// response()->jsonp()
+// response()->download()
+// response()->streamDownload()
+// response()->file()
+// return response()->streamDownload(function () {
+//      echo DocumentService::file('myfile')->getContent();
+// }, 'myfile.pdf');
+
 
 
 
