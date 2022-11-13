@@ -23,6 +23,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->composer(
+            'partials.sidebar',
+            \App\Http\ViewComposers\RecentPostsComposer::class
+        );
+
+        Blade::directive('ifGuest', function() {
+            return "<?php if (auth()->guest()): ?>";
+        });
     }
 }
